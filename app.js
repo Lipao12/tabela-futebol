@@ -1,6 +1,7 @@
 import bodyParser from "body-parser";
 import 'dotenv/config';
 import express from "express";
+import { ordenarTimes } from './utils.js';
 
 const app = express();
 const port = 3000;
@@ -38,6 +39,30 @@ const times = [
     "vitorias": 2,
     "empates": 2,
     "derrotas": 5,
+    "golsFeitos": 7,
+    "golsTomados": 12,
+  },
+  {
+    "name": "Madureira RJ",
+    "vitorias": 2,
+    "empates": 2,
+    "derrotas": 5,
+    "golsFeitos": 7,
+    "golsTomados": 12,
+  },
+  {
+    "name": "Boavista RJ",
+    "vitorias": 2,
+    "empates": 4,
+    "derrotas": 3,
+    "golsFeitos": 9,
+    "golsTomados": 12,
+  },
+  {
+    "name": "Bangu",
+    "vitorias": 3,
+    "empates": 2,
+    "derrotas": 4,
     "golsFeitos": 7,
     "golsTomados": 12,
   },
@@ -81,7 +106,8 @@ app.get("/", async (req, res) => {
     /*const result = await axios.get("https://api.football-data.org/v4/competitions/PL",
     config);
     console.log(result.data.seasons[1])*/
-    res.render("home.ejs", { times: times, currentRodadaIndex: validRodadaIndex, rodadaAtual: rodadas[validRodadaIndex] });
+    const timesOrdenados = ordenarTimes(times);
+    res.render("home.ejs", { times: timesOrdenados, currentRodadaIndex: validRodadaIndex, rodadaAtual: rodadas[validRodadaIndex] });
   } catch (error) {
     console.error("Failed to make request:", error.message);
     /*res.render("home.ejs", {

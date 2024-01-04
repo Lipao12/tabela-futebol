@@ -7,14 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital@1&family=PT+Serif+Caption&display=swap" rel="stylesheet">
-    <title>JOgo</title>
+    <title>Tabela - Futebol</title>
 </head>
 <body>
     <div class="home-container">
         <div class="camp-header">
             <img src="/assets/camp.png">
             <div>
-                <h1>Campeonato Uruguaio</h1>
+                <h1>Campeonato Carioca</h1>
                 <h3>2024 Temporada</h3>
             </div>
         </div>
@@ -29,6 +29,7 @@
                     <p>V</p>
                     <p>E</p>
                     <p>D</p>
+                    <p>%</p>
                     <p>GF</p>
                     <p>GS</p>
                     <p>SG</p>
@@ -36,7 +37,7 @@
                 <% times.forEach((time, index) => { %>
                     <div class="time">
                         <div>
-                            <p class="info"><%= index + 1 %></p>
+                            <p class="info <%= index < 3 ? 'primeiros-colocados' : (index >= times.length - 2 ? 'ultimos-colocados' : '') %>"><%= index + 1 %></p>
                             <p class="info" id="nome"><%= time.name %></p>
                         </div>
                         <p class="pontos"><%= 3* time.vitorias +  time.empates %></p>
@@ -44,12 +45,19 @@
                         <p><%= time.vitorias %></p>
                         <p><%= time.empates %></p>
                         <p><%= time.derrotas %></p>
+                        <p><%= Math.floor(((3* time.vitorias +  time.empates)/ (3*time.vitorias +  3*time.empates + 3*time.derrotas))*100)%></p>
                         <p><%= time.golsFeitos %></p>
                         <p><%= time.golsTomados %></p>
                         <p><%= time.golsFeitos - time.golsTomados %></p>
                     </div>
                 <% }) %> 
                 </div>  
+                <div class="legenda">
+                    <div id="verde"></div>
+                    <p>semifinalista</p>
+                    <div id="vermelho"></div>
+                    <p>rebaixado</p>
+                </div>
             </div>
             <div class="proximos-jogos">
                 <h2>Próximos Jogos</h2>
