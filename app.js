@@ -20,9 +20,9 @@ const times = [
   },
   {
     "name": "Flamengo",
-    "vitorias": 6,
+    "vitorias": 0,
     "empates": 2,
-    "derrotas": 1,
+    "derrotas": 7,
     "golsFeitos": 18,
     "golsTomados": 10,
   },
