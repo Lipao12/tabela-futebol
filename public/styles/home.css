@@ -1,0 +1,120 @@
+p{
+    margin: 7px ;
+}
+
+.home-container {
+    margin: 0 auto;
+    max-width: 80%;
+    height: 100vh;
+    /*border: 1px solid #ccc;
+    background-color: #f8f8f8;*/
+    padding: 20px;
+    /*border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);*/
+    display: flex;
+    flex-direction: column;
+}
+
+.camp-header {
+    display: flex;
+    align-items: start;
+    margin-bottom: 20px;
+}
+
+.camp-header img {
+    height: 150px;
+    margin-right: 20px;
+}
+
+.camp-header h1, h3 {
+    margin: 0;
+}
+.camp-header h1 {
+    margin-top: 30px;
+}
+
+.tab-rod {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+
+.tabela {
+    flex: 0 0 65%;
+    margin: 0 15px 20px 15px;
+    overflow: hidden;
+}
+.body-tab{
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.time {
+    
+    display: grid;
+    grid-template-columns: 3fr repeat(8, 1fr);
+    padding: 0  10px;
+    font-family: serif;
+}
+
+.time:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.time.header {
+    border-radius: 8px 8px 0 0;
+    font-weight: bold;
+    background-color: #ddd;
+    font-family: 'PT Serif Caption', serif;
+}
+
+
+.time div {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+
+.time .pontos{
+    font-weight:bolder;
+}
+
+.proximos-jogos {
+    flex: 1;
+    margin-right: 15px;
+}
+  .rodada-curr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  
+  .rodada-curr button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.rodada-curr button:hover {
+    background-color: #45a049;
+}
+.btn-left {
+    float: left;
+}
+
+.btn-right {
+    float: right;
+}
+
+  .jogo {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f2f2f2;
+  }
