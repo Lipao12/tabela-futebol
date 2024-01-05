@@ -205,7 +205,9 @@ p{
 }
 
 .vs p:nth-child(2) {
-    width: 30px; /* Defina o tamanho desejado aqui */
+    width: 30px; 
+    color: #C8C8C8;
+    font-weight: bold;
 }
 .vs p:first-child{
     text-align: right;
