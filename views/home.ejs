@@ -63,14 +63,19 @@
                 <h2>Próximos Jogos</h2>
                 <div class="rodada">
                     <div class="rodada-curr">
-                        <form action="/" method="GET" >
+                        <form action="/" method="GET">
                             <input type="hidden" name="ant" value="<%= currentRodadaIndex - 1 %>">
-                            <button type="submit" class="btn-left">&#9664;</button>
+                            <button type="submit" 
+                                    class="<%= currentRodadaIndex <= 0 ? 'btn-inv btn-left' : 'bnt-val btn-left' %>"
+                                    <%= currentRodadaIndex <= 0 ? 'disabled' : '' %>>&#9664;</button>
                         </form>
                         <h3>Rodada <%= rodadaAtual.numero %></h3>
                         <form action="/" method="GET" >
                             <input type="hidden" name="prox" value="<%= currentRodadaIndex + 1 %>">
-                            <button type="submit" class="btn-right">&#9654;</button>
+                            <button type="submit" 
+                                    class="<%= currentRodadaIndex+1 >= (times.length-1)*2  ? 'btn-inv btn-right' : 'bnt-val btn-right' %>"
+                                    <%= currentRodadaIndex+1 >= (times.length-1)*2 ? 'disabled' : '' %>>&#9654;</button>
+                                    <% console.log(currentRodadaIndex+1, times.length) %>
                         </form>
                         
                     </form>
@@ -79,8 +84,12 @@
                         
                     <% rodadaAtual.jogos.forEach((jogo) => { %>
                         <div class="jogo">
-                            <p><%= jogo.timeCasa %> vs <%= jogo.timeVisitante %></p>
-                            <p>Data: <%= jogo.data %></p>
+                            <div class="vs">
+                                <p><%= jogo.timeCasa %></p>
+                                <p>vs</p>
+                                <p><%= jogo.timeVisitante %></p>
+                            </div>
+                            <p class="data">Data: <%= jogo.data %></p>
                         </div>
                     <% }) %>
                 </div>
